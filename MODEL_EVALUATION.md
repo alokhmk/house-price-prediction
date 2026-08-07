@@ -76,6 +76,20 @@ error (~$17K MAE across all test houses).
 **Random Forest Regressor** was selected as the final model based on 
 superior performance on both MAE and R².
 
+## Additional Testing
+
+### Feature Importance
+`OverallQual` was the dominant predictor (56% importance), followed by 
+`GrLivArea` (12%) and `TotalBsmtSF` (6%). This aligns with the EDA 
+correlation analysis, confirming the model relies on features that 
+genuinely drive price.
+
+### Known Limitation
+The model performs noticeably worse on higher-priced homes ($250K+), 
+with errors 3-5x higher than the average MAE. This is likely due to 
+fewer high-price training examples, consistent with the right-skewed 
+price distribution observed during EDA.
+
 ## Possible Future Improvements
 - Try Gradient Boosting (XGBoost/LightGBM) for potentially better accuracy
 - Apply log transformation to `SalePrice` to address skewness
